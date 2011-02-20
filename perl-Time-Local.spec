@@ -1,5 +1,5 @@
 %define upstream_name    Time-Local
-%define upstream_version 1.1901
+%define upstream_version 1.2000
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
