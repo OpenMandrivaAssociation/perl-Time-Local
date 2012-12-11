@@ -1,19 +1,18 @@
 %define upstream_name    Time-Local
 %define upstream_version 1.2000
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Implements timelocal() and timegm()
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Time/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Implements timelocal() and timegm()
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Time/%{upstream_name}-%{upstream_version}.tar.gz
 
-
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildArch:	noarch
 
 %description
 This module provides functions that are the inverse of built-in perl
@@ -33,24 +32,33 @@ is consistent with the values returned from 'localtime()' and 'gmtime()'.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
-%{make}
+perl Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-%{make} test
+%make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc Changes README LICENSE
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
+
+%changelog
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 1.200.0-2mdv2011.0
++ Revision: 657475
+- rebuild for updated spec-helper
+
+* Sun Feb 20 2011 Guillaume Rousse <guillomovitch@mandriva.org> 1.200.0-1
++ Revision: 638971
+- update to new version 1.2000
+
+* Sun Jul 12 2009 Jérôme Quelin <jquelin@mandriva.org> 1.190.100-1mdv2011.0
++ Revision: 395226
+- import perl-Time-Local
 
 
+* Sun Jul 12 2009 cpan2dist 1.1901-1mdv
+- initial mdv release, generated with cpan2dist
