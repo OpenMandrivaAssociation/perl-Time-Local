@@ -1,15 +1,15 @@
 %define upstream_name    Time-Local
-%define upstream_version 1.2000
+%define upstream_version 1.2300
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 1.2300
+Release:	1
 
 Summary:	Implements timelocal() and timegm()
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Time/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Time/Time-Local-1.2300.tar.gz
 
 BuildRequires:	perl-devel
 BuildArch:	noarch
@@ -62,3 +62,4 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 * Sun Jul 12 2009 cpan2dist 1.1901-1mdv
 - initial mdv release, generated with cpan2dist
+
