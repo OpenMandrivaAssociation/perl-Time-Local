@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version 1.2300
-Release:	1
+Release:	2
 
 Summary:	Implements timelocal() and timegm()
 License:	GPL+ or Artistic
